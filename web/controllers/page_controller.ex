@@ -2,6 +2,6 @@ defmodule YourWeather.PageController do
   use YourWeather.Web, :controller
 
   def index(conn, _params) do
-    render conn, "index.html"
+    html(conn, File.read!("ng_app/dist/your-weather/index.html"))
   end
 end
