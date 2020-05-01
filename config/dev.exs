@@ -50,8 +50,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :your_weather, YourWeather.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "user",
+  password: "abcd",
   database: "your_weather_dev",
   hostname: "localhost",
   pool_size: 10
