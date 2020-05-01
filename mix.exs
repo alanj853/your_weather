@@ -56,8 +56,26 @@ defmodule YourWeather.Mixfile do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate", "test"],
-      compile: [&compile_ng/1, "compile"]
+      compile_ng: [&compile_ng/1],
+      compile: [&evaluate_compile/1]
     ]
+  end
+
+  def evaluate_compile(["--all"]) do
+    Mix.Task.run("compile_ng")
+    Mix.Task.run("compile")
+  end
+
+  def evaluate_compile(["--iex"]) do
+    Mix.Task.run("compile")
+  end
+
+  def evaluate_compile(["--ng"]) do
+    Mix.Task.run("compile_ng")
+  end
+
+  def evaluate_compile([]) do
+    evaluate_compile(["--all"])
   end
 
   @doc """
