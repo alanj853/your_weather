@@ -9,7 +9,7 @@ defmodule YourWeather do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      # supervisor(YourWeather.Repo, []),
+      supervisor(YourWeather.Repo, []),
       # Start the endpoint when the application starts
       supervisor(YourWeather.Endpoint, []),
       # Start your own worker by calling: YourWeather.Worker.start_link(arg1, arg2, arg3)
