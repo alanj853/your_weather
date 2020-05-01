@@ -24,14 +24,15 @@ config :your_weather, YourWeather.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
-                    cd: Path.expand("../", __DIR__)]]
+  watchers: [node: ["node_modules/@angular/cli/bin/ng", "build", "--watch", "true",
+                    cd: "ng_app"]]
 
 
 # Watch static and templates for browser reloading.
 config :your_weather, YourWeather.Endpoint,
   live_reload: [
     patterns: [
+      ~r{ng_app/dist/your-weather/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},
