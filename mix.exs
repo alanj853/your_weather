@@ -55,7 +55,25 @@ defmodule YourWeather.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate", "test"],
+      compile: [&compile_ng/1, "compile"]
     ]
+  end
+
+  @doc """
+  Function to compile the Angular App
+  """
+  def compile_ng(_) do
+    ng_app_path = "ng_app"
+    node_modules = "#{ng_app_path}/node_modules"
+    unless File.exists?(node_modules) do
+      Mix.shell().info([:green, "Installing ", :reset, "node_modules"])
+      {_, 0} = System.cmd("npm", ["install"], cd: ng_app_path)
+    else
+      Mix.shell().info([:green, "node_modules :ok"])
+    end
+
+    Mix.shell().info([:green, "Building ", :reset, "ng_app"])
+    {_, 0} = System.cmd("ng", ["b"], cd: ng_app_path)
   end
 end
