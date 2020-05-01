@@ -41,7 +41,9 @@ defmodule YourWeather.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:plug_cowboy, "~> 1.0"}
+      {:plug_cowboy, "~> 1.0"},
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:absinthe_plug, "~> 1.4.7"},
     ]
   end
 
@@ -74,7 +76,7 @@ defmodule YourWeather.Mixfile do
     Mix.Task.run("compile_ng")
   end
 
-  def evaluate_compile([]) do
+  def evaluate_compile(_) do
     evaluate_compile(["--all"])
   end
 
@@ -82,16 +84,16 @@ defmodule YourWeather.Mixfile do
   Function to compile the Angular App
   """
   def compile_ng(_) do
-    ng_app_path = "ng_app"
-    node_modules = "#{ng_app_path}/node_modules"
-    unless File.exists?(node_modules) do
-      Mix.shell().info([:green, "Installing ", :reset, "node_modules"])
-      {_, 0} = System.cmd("npm", ["install"], cd: ng_app_path)
-    else
-      Mix.shell().info([:green, "node_modules :ok"])
-    end
+    # ng_app_path = "ng_app"
+    # node_modules = "#{ng_app_path}/node_modules"
+    # unless File.exists?(node_modules) do
+    #   Mix.shell().info([:green, "Installing ", :reset, "node_modules"])
+    #   {_, 0} = System.cmd("npm", ["install"], cd: ng_app_path)
+    # else
+    #   Mix.shell().info([:green, "node_modules :ok"])
+    # end
 
-    Mix.shell().info([:green, "Building ", :reset, "ng_app"])
-    {_, 0} = System.cmd("ng", ["b"], cd: ng_app_path)
+    # Mix.shell().info([:green, "Building ", :reset, "ng_app"])
+    # {_, 0} = System.cmd("ng", ["b"], cd: ng_app_path)
   end
 end
