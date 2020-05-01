@@ -19,6 +19,14 @@ defmodule YourWeather.Router do
     get "/", PageController, :index
   end
 
+  scope "/" do
+    pipe_through :api
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: YourWeather.Schema,
+      interface: :simple,
+      context: %{pubsub: YourWeather.Endpoint}
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", YourWeather do
   #   pipe_through :api
