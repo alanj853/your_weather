@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService, UserService } from '../_services';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  currentUser: any;
+  users = [];
 
-  ngOnInit(): void {
+  constructor(
+    private authenticationService: AuthenticationService,
+    private userService: UserService
+  ) {
+      this.currentUser = this.authenticationService.currentUserValue;
+  }
+
+  ngOnInit() {
+      this.loadAllUsers();
+  }
+
+  deleteUser(id: number) {
+      this.userService.delete(id)
+          .pipe(first())
+          .subscribe(() => this.loadAllUsers());
+  }
+
+  private loadAllUsers() {
+      this.userService.getAll()
+          .pipe(first())
+          .subscribe(users => this.users = users);
   }
 
 }
