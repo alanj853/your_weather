@@ -9,13 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { AlertComponent } from './_components/alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     ReactiveFormsModule,
