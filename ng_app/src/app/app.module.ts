@@ -28,7 +28,7 @@ import { AlertComponent } from './_components/alert/alert.component';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    
+
     // Used to create the fake backend
     fakeBackendProvider
   ],
