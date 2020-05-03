@@ -14,6 +14,22 @@ import { UvComponent } from './uv/uv.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+
+import { StoreModule } from '@ngrx/store';
+import { locationReducer } from './_helpers';
+import { FormsModule } from '@angular/forms';
+import { WeatherService } from './_services';
 
 @NgModule({
   declarations: [
@@ -25,15 +41,32 @@ import { HomePageComponent } from './home-page/home-page.component';
     UvComponent,
     CurrentWeatherComponent,
     ForecastComponent,
-    HomePageComponent
+    HomePageComponent,
+    ForecastComponent,
+    UvComponent,
+    TopBarComponent
   ],
   imports: [
-    ReactiveFormsModule,
-    HttpClientModule,
     BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    StoreModule.forRoot({
+      loc: locationReducer
+    }),
+    FormsModule,
+    MatInputModule,
+    MatTabsModule,
+    MatCardModule,
+    HttpClientModule,
+    MatDividerModule,
+    MatListModule,
     AppRoutingModule
   ],
-  providers: [
+  providers: [,
+    WeatherService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
