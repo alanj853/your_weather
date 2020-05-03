@@ -10,6 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { fakeBackendProvider, JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertComponent } from './_components/alert/alert.component';
+import { UvComponent } from './uv/uv.component';
+import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { ForecastComponent } from './forecast/forecast.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { AlertComponent } from './_components/alert/alert.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    UvComponent,
+    CurrentWeatherComponent,
+    ForecastComponent,
+    HomePageComponent
   ],
   imports: [
     ReactiveFormsModule,
