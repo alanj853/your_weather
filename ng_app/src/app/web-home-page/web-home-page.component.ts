@@ -3,11 +3,11 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  selector: 'app-web-home-page',
+  templateUrl: './web-home-page.component.html',
+  styleUrls: ['./web-home-page.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class WebHomePageComponent implements OnInit {
   loc$: Observable<string>;
   loc: string;  constructor(private store: Store<any>) {
     this.loc$ = store.pipe(select('loc'));

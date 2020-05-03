@@ -13,7 +13,7 @@ import { AlertComponent } from './_components/alert/alert.component';
 import { UvComponent } from './uv/uv.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { WebHomePageComponent } from './web-home-page/web-home-page.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -41,7 +41,7 @@ import { WeatherService } from './_services';
     UvComponent,
     CurrentWeatherComponent,
     ForecastComponent,
-    HomePageComponent,
+    WebHomePageComponent,
     ForecastComponent,
     UvComponent,
     TopBarComponent
