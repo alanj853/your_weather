@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { WeatherService } from '../_services';
 
 @Component({
@@ -16,6 +16,13 @@ export class UvComponent implements OnInit {
   
   ngOnInit() {
     this.searchWeather(this.location);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    let newLocation = changes.location.currentValue;
+    if (newLocation) {
+      this.searchWeather(newLocation);
+    }    
   }
   
   searchWeather(loc: string) {
