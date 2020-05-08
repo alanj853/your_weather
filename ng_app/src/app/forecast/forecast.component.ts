@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
+import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from '../_services';
 
 @Component({
@@ -9,21 +7,16 @@ import { WeatherService } from '../_services';
   styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent implements OnInit {
-  loc$: Observable<string>;
-  loc: string;
+  @Input() location : string;
   currentWeather: any = <any>{};
   forecast: any = <any>{};
-  msg: string;  constructor(
-    private store: Store<any>,
-    private weatherService: WeatherService
-  ) {
-    this.loc$ = store.pipe(select('loc'));
-    this.loc$.subscribe(loc => {
-      this.loc = loc;
-      this.searchWeather(loc);
-    })
-  }  ngOnInit() {
-  }  searchWeather(loc: string) {
+  msg: string;  constructor(private weatherService: WeatherService) {}
+  
+  ngOnInit() {
+    this.searchWeather(this.location);
+  }
+  
+  searchWeather(loc: string) {
     this.msg = '';
     this.currentWeather = {};
     this.weatherService.getCurrentWeather(loc)
@@ -32,11 +25,15 @@ export class ForecastComponent implements OnInit {
       }, err => {}, () => {
         this.searchForecast(loc);
       })
-  }  searchForecast(loc: string) {
+  }
+  
+  searchForecast(loc: string) {
     this.weatherService.getForecast(loc)
       .subscribe(res => {
         this.forecast = res;
       }, err => {})
-  }  resultFound() {
+  }
+  
+  resultFound() {
     return Object.keys(this.currentWeather).length > 0;
   }}

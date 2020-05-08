@@ -9,8 +9,12 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-  loc: string;constructor(private store: Store<any>) { }ngOnInit() {
-  }  search(searchForm: NgForm) {
+  loc: string;constructor(private store: Store<any>) {}
+  
+  ngOnInit() {
+  } 
+
+  search(searchForm: NgForm) {
     if (searchForm.invalid) {
       return;
     }
