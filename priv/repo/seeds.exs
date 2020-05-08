@@ -10,8 +10,8 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will halt execution if something goes wrong.
 
-alias YourWeather.News.Link
+alias YourWeather.User
 alias YourWeather.Repo
 
-%Link{url: "http://graphql.org/", description: "The Best Query Language"} |> Repo.insert!
-%Link{url: "http://dev.apollodata.com/", description: "Awesome GraphQL Client"} |> Repo.insert!
+%User{email: "test123@gmail.com", first_name: "user1", last_name: "lastname1", password: "abcd"} |> Repo.insert!
+%User{email: "test456@gmail.com", first_name: "user2", last_name: "lastname2", password: "efgh"} |> Repo.insert!

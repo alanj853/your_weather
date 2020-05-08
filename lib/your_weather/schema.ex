@@ -1,17 +1,19 @@
 defmodule YourWeather.Schema do
     use Absinthe.Schema
   
-    alias YourWeather.NewsResolver
+    alias YourWeather.UserResolver
   
-    object :link do
+    object :user do
       field :id, non_null(:id)
-      field :url, non_null(:string)
-      field :description, non_null(:string)
+      field :email, non_null(:string)
+      field :first_name, non_null(:string)
+      field :last_name, non_null(:string)
+      field :password, non_null(:string)
     end
   
     query do
-      field :all_links, non_null(list_of(non_null(:link))) do
-        resolve &NewsResolver.all_links/3
+      field :all_users, non_null(list_of(non_null(:user))) do
+        resolve &UserResolver.all_users/3
       end
     end
   end
