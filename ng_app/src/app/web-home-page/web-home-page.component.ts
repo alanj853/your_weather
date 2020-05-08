@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-web-home-page',
@@ -9,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class WebHomePageComponent implements OnInit {
   @Input() userLocation: string;
+  formLoc :string;
 
   defaultLocation: string = 'Galway'
   
@@ -16,5 +16,12 @@ export class WebHomePageComponent implements OnInit {
     if (!this.userLocation) {
       this.userLocation = this.defaultLocation;
     }
+  }
+
+  search(searchForm: NgForm) {
+    if (searchForm.invalid) {
+      return;
+    }
+    this.userLocation = this.formLoc;
   }
 }
