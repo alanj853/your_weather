@@ -9,11 +9,12 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<any>;
     public currentUser: Observable<any>;
-    private configApiUrl = 'http://localhost:4000';
+    private configApiUrl;
 
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
+        this.configApiUrl = window.location.href;
     }
 
     public get currentUserValue() {

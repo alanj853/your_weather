@@ -6,9 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  private configApiUrl = 'http://localhost:4000';
+  private configApiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.configApiUrl = window.location.href;
+   }
 
     getAll() {
         return this.http.get<any[]>(`${this.configApiUrl}/users`);
