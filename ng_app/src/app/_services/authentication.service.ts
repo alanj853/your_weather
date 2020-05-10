@@ -14,7 +14,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
-        this.configApiUrl = window.location.href;
+        this.configApiUrl = 'http://localhost:4000';
     }
 
     public get currentUserValue() {

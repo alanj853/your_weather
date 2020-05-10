@@ -9,7 +9,7 @@ export class UserService {
   private configApiUrl;
 
   constructor(private http: HttpClient) {
-    this.configApiUrl = window.location.href;
+    this.configApiUrl = 'http://localhost:4000';
    }
 
     getAll() {
