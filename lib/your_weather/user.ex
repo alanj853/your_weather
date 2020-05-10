@@ -8,6 +8,7 @@ defmodule YourWeather.User do
       field :first_name, :string
       field :last_name, :string
       field :password, :string
+      field :location, :string
   
       timestamps()
     end
@@ -15,8 +16,8 @@ defmodule YourWeather.User do
     @doc false
     def changeset(user, attrs) do
       user
-      |> cast(attrs, [:email, :first_name, :last_name, :password])
-      |> validate_required([:email, :first_name, :last_name, :password])
+      |> cast(attrs, [:email, :first_name, :last_name, :password, :location])
+      |> validate_required([:email, :first_name, :last_name, :password, :location])
     end
 
 end

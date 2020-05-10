@@ -9,6 +9,7 @@ defmodule YourWeather.Schema do
       field :first_name, non_null(:string)
       field :last_name, non_null(:string)
       field :password, non_null(:string)
+      field :location, non_null(:string)
     end
   
     query do

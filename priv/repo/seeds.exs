@@ -13,5 +13,5 @@
 alias YourWeather.User
 alias YourWeather.Repo
 
-%User{email: "test123@gmail.com", first_name: "user1", last_name: "lastname1", password: "abcd"} |> Repo.insert!
-%User{email: "test456@gmail.com", first_name: "user2", last_name: "lastname2", password: "efgh"} |> Repo.insert!
+%User{email: "test123@gmail.com", first_name: "user1", last_name: "lastname1", password: "abcd", location: "Cork"} |> Repo.insert!
+%User{email: "test456@gmail.com", first_name: "user2", last_name: "lastname2", password: "efgh", location: "Galway"} |> Repo.insert!
