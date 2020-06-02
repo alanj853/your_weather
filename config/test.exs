@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :your_weather, YourWeather.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "alan",
+  password: "alan",
   database: "your_weather_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
