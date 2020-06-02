@@ -17,4 +17,16 @@ defmodule YourWeather.Schema do
         resolve &UserResolver.all_users/3
       end
     end
+
+    mutation do
+      field :create_user, :user do
+        arg :email, non_null(:string)
+        arg :first_name, non_null(:string)
+        arg :last_name, non_null(:string)
+        arg :password, non_null(:string)
+        arg :location, non_null(:string)
+    
+        resolve &UserResolver.create_user/3
+      end
+    end
   end
