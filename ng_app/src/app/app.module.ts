@@ -29,6 +29,7 @@ import { StoreModule } from '@ngrx/store';
 import { locationReducer } from './_helpers';
 import { FormsModule } from '@angular/forms';
 import { WeatherService } from './_services';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { WeatherService } from './_services';
     HttpClientModule,
     MatDividerModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GraphQLModule
   ],
   providers: [,
     WeatherService,

@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "your-weather"
+    }
+  },
+  "defaultProject": "your-weather",
+  "cli": {
+    "analytics": false
+  }
 }
