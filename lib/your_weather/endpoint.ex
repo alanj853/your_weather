@@ -37,5 +37,6 @@ defmodule YourWeather.Endpoint do
     key: "_your_weather_key",
     signing_salt: "RXTw0h/P"
 
+  plug CORSPlug
   plug YourWeather.Router
 end

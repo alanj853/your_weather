@@ -45,7 +45,8 @@ defmodule YourWeather.Mixfile do
       {:absinthe, "~> 1.4.16"},
       {:absinthe_ecto, "~> 0.1.3"},
       {:absinthe_plug, "~> 1.4.7"},
-      {:jason, "~> 1.2"}
+      {:jason, "~> 1.2"},
+      {:cors_plug, "~> 2.0"}
     ]
   end
 
