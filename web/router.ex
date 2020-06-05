@@ -18,6 +18,11 @@ defmodule YourWeather.Router do
 
     get "/", PageController, :index
     post "/users/register", UserController, :register
+    post "/users/authenticate", UserController, :authenticate
+
+    ## catch-all routes
+    get "/*path", PageController, :index
+    post "/*path", PageController, :index
   end
 
   scope "/" do
