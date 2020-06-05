@@ -8,7 +8,7 @@ defmodule YourWeather.Schema do
       field :email, non_null(:string)
       field :first_name, non_null(:string)
       field :last_name, non_null(:string)
-      field :password, non_null(:string)
+      field :password_hash, non_null(:string)
       field :location, non_null(:string)
     end
   
@@ -23,7 +23,7 @@ defmodule YourWeather.Schema do
         arg :email, non_null(:string)
         arg :first_name, non_null(:string)
         arg :last_name, non_null(:string)
-        arg :password, non_null(:string)
+        arg :password_hash, non_null(:string)
         arg :location, non_null(:string)
     
         resolve &UserResolver.create_user/3

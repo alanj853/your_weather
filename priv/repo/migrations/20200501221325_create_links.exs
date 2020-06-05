@@ -7,7 +7,7 @@ defmodule YourWeather.Repo.Migrations.CreateLinks do
       add :email, :string
       add :first_name, :string
       add :last_name, :string
-      add :password, :string
+      add :password_hash, :string
       add :location, :string
 
       timestamps()
