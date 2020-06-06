@@ -3,14 +3,14 @@ defmodule YourWeather.UserController do
     require Logger
     alias YourWeather.Users
     alias YourWeather.User
+    alias YourWeather.Guardian
   
     def create(conn, params = %{"user" => user_params}) do
       IO.puts("This is params: #{inspect user_params}")
-      with {:ok, %User{} = user} <- YourWeather.Users.create_user(user_params) do
+      with {:ok, %User{} = user} <- YourWeather.Users.create_user(user_params),
+        {:ok, token, _claims} <- Guardian.encode_and_sign(user) do
         conn
-        |> put_status(:created)
-        |> put_resp_header("location", user_path(conn, :show, user))
-        |> json(%{})
+        |> render("jwt.json", jwt: token)
       end
     end
     
