@@ -1,0 +1,11 @@
+## Setting up PostgreSQL
+https://help.ubuntu.com/community/PostgreSQL
+
+## Graphiql Elixir
+https://www.howtographql.com/graphql-elixir/1-getting-started/
+
+## Graphiql Angular
+https://www.apollographql.com/docs/angular/
+
+## Jwt
+https://medium.com/@njwest/jwt-auth-with-an-elixir-on-phoenix-1-3-guardian-api-and-react-native-mobile-app-1bd00559ea51
