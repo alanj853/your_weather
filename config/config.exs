@@ -22,6 +22,10 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :your_weather, YourWeather.Guardian,
+  issuer: :your_weather,
+  secret_key: "cBzIpZKgz+MhsGWyX1QsS+J2N/qwkWjhKwQ3f2s8mgVHYGFMa3HURm7ft162Vvd0"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
