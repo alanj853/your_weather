@@ -21,7 +21,8 @@ defmodule YourWeather.User do
     def changeset(user, attrs) do
       user
       |> cast(attrs, [:email, :first_name, :last_name, :password, :password_confirmation, :location]) # Remove hash, add pw + pw confirmation
-      |> validate_required([:email, :first_name, :last_name, :password, :password_confirmation, :location]) # Remove hash, add pw + pw confirmation
+      # |> validate_required([:email, :first_name, :last_name, :password, :password_confirmation, :location]) # Remove hash, add pw + pw confirmation
+      |> validate_required([:email, :password, :password_confirmation]) # Remove hash, add pw + pw confirmation
       |> validate_format(:email, ~r/@/) # Check that email is valid
       |> validate_length(:password, min: 8) # Check that password length is >= 8 
       |> validate_confirmation(:password) # Check that password === password_confirmation
