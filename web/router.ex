@@ -13,6 +13,12 @@ defmodule YourWeather.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api/v1", YourWeather do
+    pipe_through :api
+
+    resources "/users", UserController, only: [:create, :show]
+  end
+
   scope "/", YourWeather do
     pipe_through :browser # Use the default browser stack
 

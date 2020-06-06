@@ -4,6 +4,12 @@ defmodule YourWeather.UserController do
     alias YourWeather.Users
     alias YourWeather.User
   
+    def create(conn, params) do
+      IO.puts("This is params: #{inspect params}")
+      conn
+      |> json(%{})
+    end
+    
     def register(conn, params) do
       IO.puts("This is params: #{inspect params}")
       params
