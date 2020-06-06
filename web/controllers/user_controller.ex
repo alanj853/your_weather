@@ -4,10 +4,14 @@ defmodule YourWeather.UserController do
     alias YourWeather.Users
     alias YourWeather.User
   
-    def create(conn, params) do
-      IO.puts("This is params: #{inspect params}")
-      conn
-      |> json(%{})
+    def create(conn, params = %{"user" => user_params}) do
+      IO.puts("This is params: #{inspect user_params}")
+      with {:ok, %User{} = user} <- YourWeather.Users.create_user(user_params) do
+        conn
+        |> put_status(:created)
+        |> put_resp_header("location", user_path(conn, :show, user))
+        |> json(%{})
+      end
     end
     
     def register(conn, params) do
@@ -39,8 +43,7 @@ defmodule YourWeather.UserController do
         _ ->
           Logger.warn("Credentials '#{inspect params}' do not match any in DB")
           conn
-          |> put_status(401)
-          |> redirect(to: "/")
+          |> json(%{})
       end
     end
 
